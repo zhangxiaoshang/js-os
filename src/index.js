@@ -4,6 +4,9 @@ import setup from "./setup";
 import topbar from "./packages/topbar";
 import docker from "./packages/docker";
 import topbarRight from "./packages/topbar-right";
+import handleFullScreen from "./utils/handleFullScreen";
+
+handleFullScreen();
 
 const IMG = {};
 
@@ -17,6 +20,10 @@ const sketch = s => {
     topbar(s, IMG);
     topbarRight(s, IMG);
     docker(s, IMG);
+  };
+
+  s.windowResized = () => {
+    s.resizeCanvas(s.windowWidth, s.windowHeight);
   };
 };
 
